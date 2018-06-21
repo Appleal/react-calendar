@@ -15,7 +15,7 @@
   position: relative;
 }
 .inputBox:before{
-    content: '';
+    content: '点我';
     position: absolute;
     top: 0;
     right: 0;
@@ -80,4 +80,28 @@
 }
 .pickerdate table th{
    line-height: 30px;
+}
+.pickerdate table td.gray {
+    color: rgb(61, 60, 60);
+}
+
+.pickerdate table td.cur {
+    background: skyblue;
+}
+
+.choose_year table{
+    width: 100%;
+    padding:0 0 0 46px;
+}
+.choose_year table td {
+    cursor: pointer;
+}
+
+.choose_year table td.cur {
+    color: red;
+    font-weight: bold;
+}
+.choose_month table{
+    width: 100%;
+    padding: 60px 2px 60px 99px;
 }

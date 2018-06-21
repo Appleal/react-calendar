@@ -1,15 +1,14 @@
 import React from 'react'
 import CalenderMenu from './CalenderMenu'
-import Year from './Year'
-import Month from './Month'
+
 export default class Calender  extends React.Component {
     constructor() {
         super()
         this.state = {
-          year:2018,//new Date().getFullYear()
-          month:6,//new Date().getMonth()+1
-          date:19,//new Date().getDate()
-          isShowMenu:true
+          year:new Date().getFullYear(),
+          month:new Date().getMonth()+1,
+          date:new Date().getDate(),
+          isShowMenu:false
     }
   }
   setShowMenu(isShowMenu){
@@ -27,19 +26,22 @@ export default class Calender  extends React.Component {
   
   
    render() {
-    const {year,month,date,isShow} = this.state
+    const {year,month,date,isShowMenu} = this.state
     return (
       <div className='calender_menu'>
-        <div className='inputBox'>
+        <div className='inputBox'
+         onClick={() => { this.setState({ "isShowMenu": true})}}>
             {year}年{month}月{date}日
         </div>
         {
-          this.state.isShowMenu
+          isShowMenu
           ?
           <CalenderMenu year={year}  month={month}  date={date}
           setYear={this.setYear.bind(this)}
           setMonth={this. setMonth.bind(this)}
           setDate={this.setDate.bind(this)}
+          setShowMenu={this.setShowMenu.bind(this)
+          }
           ></CalenderMenu>
           :null
         }
